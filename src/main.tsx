@@ -1,26 +1,31 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import HomePage from "@/pages/HomePage.tsx";
 import "@/assets/scss/main.scss";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { AppContextProvider } from "@/context/appContext.tsx";
 import { ToastContainer } from "react-toastify";
 import NotFoundPage from "@/pages/NotFoundPage.tsx";
-import ProductsPage from "@/pages/ProductsPage.tsx";
+import DefaultPage from "@/pages/DefaultPage";
+import HomeContent from "./components/contents/HomeContent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/products",
-    element: <ProductsPage />,
+    element: <DefaultPage />,
+    children: [
+      {
+        index: true,
+        element: <HomeContent />,
+      },
+      {
+        path: "/products",
+      },
+    ],
   },
   {
     path: "*",
-    element: <NotFoundPage />
-  }
+    element: <NotFoundPage />,
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(

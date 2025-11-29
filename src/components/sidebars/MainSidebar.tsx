@@ -6,24 +6,26 @@ import { Link } from "react-router";
 import MainHeading from "@/components/headings/MainHeading";
 
 const MainSidebar = () => {
-  const { pages } = useContext(AppContext);
+  const { pages, isMainSidebarCollapsed, breakpoints } = useContext(AppContext);
 
   return (
-    <div className="sidebar-main">
+    <div
+      className={`main-sidebar ${isMainSidebarCollapsed || breakpoints[992] ? "collapsed" : ""}`}
+    >
       <Link className="logo" to="/">
         <LogoImage />
       </Link>
       <nav>
         <ul className="pages">
-          <li className="pages-item">
-            {pages.map((page: Page) =>
-              page?.type === "section" ? (
+          {pages.map((page: Page) => (
+            <li className="pages-item">
+              {page?.type === "section" ? (
                 <MainHeading page={page} key={page.name} />
               ) : (
                 <PageButton page={page} key={page.name} />
-              )
-            )}
-          </li>
+              )}
+            </li>
+          ))}
         </ul>
       </nav>
     </div>

@@ -1,11 +1,6 @@
-interface Grid2PropsImage {
-  title?: string;
-}
-
-const Grid2Image: React.FC<Grid2PropsImage> = ({ title }) => {
+const Grid2Image = () => {
   return (
     <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {title ? title : null}
       <path
         d="M0 0H0.6875H13.0625H13.75V0.6875V15.8125V16.5H13.0625H0.6875H0V15.8125V0.6875V0ZM1.375 1.375V4.8125H12.375V1.375H1.375ZM1.375 6.1875V10.3125H12.375V6.1875H1.375ZM1.375 11.6875V15.125H12.375V11.6875H1.375Z"
         fill="#202224"
