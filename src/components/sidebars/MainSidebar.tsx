@@ -18,7 +18,7 @@ const MainSidebar = () => {
       <nav>
         <ul className="pages">
           {pages.map((page: Page) => (
-            <li className="pages-item">
+            <li className="pages-item" key={page.name}>
               {page?.type === "section" ? (
                 <MainHeading page={page} key={page.name} />
               ) : (

@@ -44,7 +44,7 @@ $fs-5: 28px;
 $fs-6: 25px;
 
 // Responsive font sizes
-// $fsr-1: clamp($fs-1, 0.466rem + 3.3vw, $fs-2);
+$fsr-1: clamp($fs-5, 1.68rem + 0.35vw, $fs-4);
 
 // Basic styles
 * {
