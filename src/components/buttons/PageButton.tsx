@@ -8,11 +8,11 @@ export type PageButtonProps = {
 };
 
 const PageButton: FC<PageButtonProps> = ({ page }) => {
-  const { isMainSidebarCollapsed } = useContext(AppContext);
+  const { isMainSidebarCollapsed, breakpoints } = useContext(AppContext);
 
   return (
     <Tooltip
-      title={isMainSidebarCollapsed ? page?.name : null}
+      title={isMainSidebarCollapsed && !breakpoints[768] ? page?.name : null}
       placement="right"
       slotProps={{
         tooltip: {

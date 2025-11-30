@@ -3,6 +3,7 @@
 // Custom variables
 // Colors
 $clr-1: #000000;
+$clr-1-05: #0000000d;
 $clr-2: #ffffff;
 $clr-3: #4880ff;
 $clr-4: #202224;
@@ -16,6 +17,16 @@ $clr-10: #d5d5d5;
 $clr-11: #f5f6fa;
 $clr-12: #646464;
 $clr-13: #5c5c5c;
+$clr-14: #8280ff;
+$clr-14-21: #8280ff36;
+$clr-15: #606060;
+$clr-16: #00b69b;
+$clr-17: #fec53d;
+$clr-17-21: #fec53d36;
+$clr-18: #4ad991;
+$clr-18-21: #4ad99136;
+$clr-19: #ff9066;
+$clr-19-30: #ff90664d;
 
 // Font families
 $ff-1: 'Nunito Sans', sans-serif;
@@ -28,6 +39,9 @@ $fw-2: 700;
 $fs-1: 16px;
 $fs-2: 14px;
 $fs-3: 12px;
+$fs-4: 32px;
+$fs-5: 28px;
+$fs-6: 25px;
 
 // Responsive font sizes
 // $fsr-1: clamp($fs-1, 0.466rem + 3.3vw, $fs-2);

@@ -22,6 +22,10 @@ import PersonImage from "@/components/images/PersonImage";
 import Grid3Image from "@/components/images/Grid3Image";
 import SettingsImage from "@/components/images/SettingsImage";
 import LogoutImage from "@/components/images/LogoutImage";
+import People2Image from "@/components/images/People2Image";
+import BoxImage from "@/components/images/BoxImage";
+import Graph2Image from "@/components/images/Graph2Image";
+import TimeImage from "@/components/images/TimeImage";
 
 export type Page = {
   name: string;
@@ -31,6 +35,7 @@ export type Page = {
 };
 export type IsMainSidebarOpen = boolean;
 export type IsMainSidebarCollapsed = boolean;
+export type IsMainDrawerOpen = boolean;
 export type Breakpoints = {
   480: boolean;
   576: boolean;
@@ -38,6 +43,14 @@ export type Breakpoints = {
   992: boolean;
   1200: boolean;
   1400: boolean;
+};
+export type DashboardCard = {
+  title: string;
+  number: string;
+  image: ReactNode;
+  trend: string;
+  percentage: string;
+  description: string;
 };
 type AppContextProviderProps = {
   children: ReactNode;
@@ -51,10 +64,15 @@ type AppContext = {
   setIsMainSidebarCollapsed: Dispatch<SetStateAction<IsMainSidebarCollapsed>>;
   breakpoints: Breakpoints;
   setBreakpoints: Dispatch<SetStateAction<Breakpoints>>;
+  isMainDrawerOpen: IsMainDrawerOpen;
+  setIsMainDrawerOpen: Dispatch<SetStateAction<IsMainDrawerOpen>>;
+  dashboardCards: DashboardCard[];
+  setDashboardCards: Dispatch<SetStateAction<DashboardCard[]>>;
 };
 
 export const AppContext = createContext({} as AppContext);
 export function AppContextProvider({ children }: AppContextProviderProps) {
+  // Variables
   const [pages, setPages] = useState<Page[]>([
     {
       name: "Dashboard",
@@ -156,7 +174,43 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     1200: false,
     1400: false,
   });
+  const [isMainDrawerOpen, setIsMainDrawerOpen] = useState<IsMainDrawerOpen>(false);
+  const [dashboardCards, setDashboardCards] = useState<DashboardCard[]>([
+    {
+      title: "Total User",
+      number: "40,689",
+      image: <People2Image />,
+      trend: "up",
+      percentage: "8.5%",
+      description: "Up from yesterday",
+    },
+    {
+      title: "Total Order",
+      number: "10293",
+      image: <BoxImage />,
+      trend: "up",
+      percentage: "1.3%",
+      description: "Up from past week",
+    },
+    {
+      title: "Total Sales",
+      number: "$89,000",
+      image: <Graph2Image />,
+      trend: "down",
+      percentage: "4.3%",
+      description: "Down from yesterday",
+    },
+    {
+      title: "Total Pending",
+      number: "2040",
+      image: <TimeImage />,
+      trend: "up",
+      percentage: "1.8%",
+      description: "Up from yesterday",
+    },
+  ]);
 
+  // Hooks
   useEffect(() => {
     if (typeof window === "undefined") return;
     const updateBreakpoints = () => {
@@ -195,6 +249,10 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         setIsMainSidebarCollapsed,
         breakpoints,
         setBreakpoints,
+        isMainDrawerOpen,
+        setIsMainDrawerOpen,
+        dashboardCards,
+        setDashboardCards,
       }}
     >
       {children}

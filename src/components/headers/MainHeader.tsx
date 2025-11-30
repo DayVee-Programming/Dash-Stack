@@ -8,7 +8,8 @@ import { AppContext } from "@/context/appContext";
 const MainHeader = () => {
   // Variables
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { isMainSidebarCollapsed, setIsMainSidebarCollapsed } = useContext(AppContext);
+  const { isMainSidebarCollapsed, setIsMainSidebarCollapsed, breakpoints, setIsMainDrawerOpen } =
+    useContext(AppContext);
 
   // Synchronous functions
   const clickSearchImage = () => {
@@ -18,6 +19,9 @@ const MainHeader = () => {
   };
   const toggleSidebar = () => {
     setIsMainSidebarCollapsed(!isMainSidebarCollapsed);
+    if (breakpoints[768]) {
+      setIsMainDrawerOpen(true);
+    }
   };
 
   return (
