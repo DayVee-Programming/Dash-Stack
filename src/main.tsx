@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import NotFoundPage from "@/pages/NotFoundPage.tsx";
 import DefaultPage from "@/pages/DefaultPage";
 import HomeContent from "./components/contents/HomeContent";
+import { Analytics } from "@vercel/analytics/react"
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ createRoot(document.getElementById("root")!).render(
       <RouterProvider router={router} />
 
       <ToastContainer />
+      <Analytics/>
     </AppContextProvider>
   </StrictMode>
 );
