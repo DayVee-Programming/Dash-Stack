@@ -16,7 +16,7 @@ const PageButton: FC<PageButtonProps> = ({ page }) => {
       placement="right"
       slotProps={{
         tooltip: {
-          sx: { fontSize: "15px", p: "14px 18px" },
+          sx: { fontSize: "15px", p: "14px 18px", backgroundColor: "#4880ff" },
         },
       }}
     >

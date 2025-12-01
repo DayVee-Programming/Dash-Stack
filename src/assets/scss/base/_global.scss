@@ -21,6 +21,7 @@ main {
   flex-direction: column;
   padding-block: 24px;
   flex-shrink: 0;
+  transition: 0.2s;
 
   @media (max-width: 768px) {
     display: none;
@@ -46,11 +47,6 @@ main {
       display: none;
     }
 
-    & .logo-image {
-      width: 90px;
-      height: 25px;
-    }
-
     & .main-heading {
       left: -15px;
       width: calc(100% + 30px);
@@ -62,6 +58,11 @@ main {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+
+    & > svg {
+      width: 90px;
+      height: 25px;
+    }
   }
 
   & .pages {
@@ -69,24 +70,89 @@ main {
     flex-direction: column;
     padding-inline: 24px;
   }
+
+  & .pages-item {
+    &:first-child {
+      & .page-button {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .not-found-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 15px;
-  padding-top: 50px;
+  min-height: 100svh;
+  background: $clr-3;
+  padding: 15px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url(../../images/icons/shapes.svg) center/cover no-repeat;
+  }
+
+  & .wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 630px;
+    border: 0.3px solid $clr-26;
+    border-radius: 24px;
+    background: $clr-2;
+    padding: 102px 106px;
+    z-index: 10;
+
+    @media (max-width: 576px) {
+      padding: 70px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 50px;
+    }
+
+    & > svg {
+      max-width: 390px;
+      width: 100%;
+      margin-bottom: 98px;
+
+      @media (max-width: 576px) {
+        margin-bottom: 50px;
+      }
+
+      @media (max-width: 480px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  & .not-found-page-span {
+    font-weight: $fw-2;
+    font-size: $fs-4;
+    letter-spacing: 0em;
+    color: $clr-4;
+    margin-bottom: 35px;
+    text-align: center;
+  }
 
   & .not-found-page-link {
-    text-decoration: underline;
-  }
-}
+    border-radius: 8px;
+    background: $clr-3;
+    opacity: 0.9;
+    padding: 14px;
+    font-weight: $fw-2;
+    font-size: $fs-7;
+    letter-spacing: 0em;
+    text-align: center;
+    color: $clr-2;
+    transition: 0.3s;
 
-.logo-image {
-  width: 101px;
-  height: 27px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
 .page-button {
@@ -97,6 +163,7 @@ main {
   padding: 13px 16px 12px;
   position: relative;
   transition: 0.3s;
+  cursor: not-allowed;
 
   &:hover {
     background: $clr-5;
@@ -114,7 +181,7 @@ main {
     }
 
     & .page-button-figure {
-      & svg path {
+      & > svg > path {
         fill: $clr-2;
       }
     }
@@ -235,18 +302,19 @@ main {
 
   & .left {
     display: flex;
-    gap: 24px;
     align-items: center;
-
-    @media (max-width: 1200px) {
-      gap: 20px;
-    }
   }
 
   & .left-figure {
     display: flex;
     height: 100%;
     cursor: pointer;
+    padding: 9px 5px;
+    margin-right: 14px;
+
+    @media (max-width: 1200px) {
+      margin-right: 10px;
+    }
 
     @media (max-width: 992px) {
       display: none;
@@ -254,6 +322,11 @@ main {
 
     @media (max-width: 768px) {
       display: flex;
+    }
+
+    & > svg {
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -280,6 +353,11 @@ main {
   & .search-figure {
     display: flex;
     cursor: pointer;
+
+    & > svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   & .search-input {
@@ -300,11 +378,11 @@ main {
     @media (max-width: 1200px) {
       margin-right: 25px;
     }
-  }
 
-  & .notification-image {
-    width: 24px;
-    height: 25px;
+    & > svg {
+      width: 24px;
+      height: 25px;
+    }
   }
 
   & .right-figure-span {
@@ -332,6 +410,11 @@ main {
     @media (max-width: 768px) {
       display: none;
     }
+
+    & > svg {
+      width: 9px;
+      height: 15px;
+    }
   }
 
   & .language-figure {
@@ -344,6 +427,10 @@ main {
 
     @media (max-width: 1200px) {
       margin-right: 12px;
+    }
+
+    & > svg {
+      border-radius: inherit;
     }
   }
 
@@ -361,6 +448,7 @@ main {
     display: flex;
     align-items: center;
     gap: 26px;
+    cursor: pointer;
 
     @media (max-width: 1200px) {
       gap: 18px;
@@ -380,9 +468,14 @@ main {
   & .profile-content-figure {
     width: 44px;
     height: 44px;
-    background: $clr-6;
+    background: $clr-3;
     border-radius: 50%;
     flex-shrink: 0;
+    padding: 10px;
+
+    & > svg > path {
+      fill: $clr-2;
+    }
   }
 
   & .desc {
@@ -421,26 +514,11 @@ main {
     width: 18px;
     height: 18px;
 
-    & .arrow-down-image {
+    & > svg {
       width: 6px;
       height: 4px;
     }
   }
-}
-
-.search-image {
-  width: 16px;
-  height: 16px;
-}
-
-.arrow-down-image {
-  width: 9px;
-  height: 15px;
-}
-
-.menu-image {
-  width: 20px;
-  height: 20px;
 }
 
 .main-drawer-container {
@@ -471,6 +549,11 @@ main {
     margin-bottom: 30px;
     justify-content: flex-start;
     margin-left: 24px;
+
+    & > svg {
+      width: 101px;
+      height: 27px;
+    }
   }
 
   & .main-drawer-figure {
@@ -481,6 +564,11 @@ main {
     right: 4px;
     border: 2px solid $clr-4;
     border-radius: 50%;
+
+    & > svg {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   & .pages {
@@ -516,6 +604,11 @@ main {
     align-items: center;
     padding: 13px 14px 12px;
     cursor: pointer;
+
+    & > svg {
+      width: 9px;
+      height: 15px;
+    }
   }
 
   & .language-figure {
@@ -525,6 +618,10 @@ main {
     border-radius: 5px;
     margin-right: 12px;
     flex-shrink: 0;
+
+    & > svg {
+      border-radius: inherit;
+    }
   }
 
   & .language-span {
@@ -532,11 +629,6 @@ main {
     color: $clr-12;
     margin-right: 11px;
   }
-}
-
-.close-image {
-  width: 30px;
-  height: 30px;
 }
 
 .dashboard-card {
@@ -627,16 +719,16 @@ main {
 
   & .bottom-figure {
     display: flex;
+
+    & > svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   & .bottom-text {
     color: $clr-15;
   }
-}
-
-.graph3-image {
-  width: 24px;
-  height: 24px;
 }
 
 .sales-chart {
@@ -655,7 +747,7 @@ main {
   }
 
   & > canvas {
-    width: 100%;
+    width: 100% !important;
     height: 370px;
 
     @media (max-width: 576px) {
@@ -664,6 +756,145 @@ main {
 
     @media (max-width: 480px) {
       height: 300px;
+    }
+  }
+}
+
+.deals-card {
+  border-radius: 14px;
+  background: $clr-2;
+  box-shadow: 6px 6px 54px 0 $clr-1-05;
+  display: flex;
+  flex-direction: column;
+  padding: 37px 32px;
+  margin-top: 28px;
+
+  & .deals-card-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 35px;
+  }
+
+  & .deals-card-heading-title {
+    font-weight: $fw-2;
+    font-size: $fs-6;
+    line-height: 83%;
+    color: $clr-4;
+  }
+
+  & .select {
+    border: 0.6px solid $clr-10;
+    border-radius: 4px;
+    padding: 9px 16px;
+    background: $clr-20;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    cursor: pointer;
+
+    & > svg {
+      width: 10px;
+      height: 10px;
+
+      & > path {
+        fill: $clr-21-40;
+      }
+    }
+  }
+
+  & .select-span {
+    font-weight: $fw-3;
+    font-size: $fs-3;
+    line-height: 83%;
+    color: $clr-21-40;
+  }
+
+  & .table-container {
+    box-shadow: unset;
+  }
+
+  & .table {
+    & * {
+      font-family: "Nunito Sans", sans-serif;
+    }
+
+    & .MuiTableRow-head {
+      border-radius: 12px;
+      background: $clr-22;
+    }
+
+    & .MuiTableCell-head {
+      font-weight: $fw-2;
+      font-size: $fs-2;
+      color: $clr-4;
+      line-height: unset;
+      border-bottom: unset;
+
+      &:first-child {
+        padding-left: 24px;
+        border-radius: 12px 0 0 12px;
+      }
+
+      &:last-child {
+        padding-right: 24px;
+        text-align: center;
+      }
+    }
+
+    & .MuiTableCell-body {
+      padding: 24px 16px 20px;
+      border-bottom: 0.4px solid $clr-23-40;
+      font-size: $fs-2;
+      color: $clr-4;
+      opacity: 0.8;
+
+      &:first-child {
+        padding-left: 24px;
+      }
+
+      &:last-child {
+        padding-right: 24px;
+        text-align: center;
+      }
+
+      &:has(.profile) {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+    }
+
+    & .profile {
+      border-radius: 18px;
+      width: 36px;
+      height: 36px;
+      background: $clr-6;
+      flex-shrink: 0;
+    }
+
+    & .status {
+      padding: 4px 15px;
+      font-weight: $fw-2;
+      font-size: $fs-2;
+      color: $clr-2;
+      border-radius: 13px;
+      min-width: 93px;
+      white-space: nowrap;
+      background: $clr-4;
+
+      &.Delivered {
+        background: $clr-16;
+      }
+
+      &.Pending {
+        background: $clr-24;
+      }
+
+      &.Rejected {
+        background: $clr-25;
+      }
     }
   }
 }

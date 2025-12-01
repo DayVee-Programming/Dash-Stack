@@ -6,6 +6,7 @@ import MainHeading from "@/components/headings/MainHeading";
 import PageButton from "@/components/buttons/PageButton";
 import ArrowDownImage from "@/components/images/ArrowDownImage";
 import CloseImage from "@/components/images/CloseImage";
+import EnUsImage from "@/components/images/EnUsImage";
 
 const MainDrawer = () => {
   const { pages, setIsMainDrawerOpen } = useContext(AppContext);
@@ -32,7 +33,9 @@ const MainDrawer = () => {
                   />
                 </li>
                 <li className="pages-item language">
-                  <figure className="language-figure"></figure>
+                  <figure className="language-figure">
+                    <EnUsImage />
+                  </figure>
                   <span className="language-span">English</span>
                   <ArrowDownImage />
                 </li>

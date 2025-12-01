@@ -1,6 +1,6 @@
 const MenuImage = () => {
   return (
-    <svg className="menu-image" width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg  width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M0 0H16.5V1.375H0V0ZM0 5.5H16.5V6.875H0V5.5ZM0 11H16.5V12.375H0V11Z"
         fill="#202224"

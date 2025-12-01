@@ -4,6 +4,8 @@ import { useContext, useRef } from "react";
 import ArrowDownImage from "@/components/images/ArrowDownImage";
 import SearchImage from "@/components/images/SearchImage";
 import { AppContext } from "@/context/appContext";
+import EnUsImage from "@/components/images/EnUsImage";
+import PersonImage from "@/components/images/PersonImage";
 
 const MainHeader = () => {
   // Variables
@@ -49,13 +51,17 @@ const MainHeader = () => {
           <span className="right-figure-span">6</span>
         </figure>
         <div className="language">
-          <figure className="language-figure"></figure>
+          <figure className="language-figure">
+            <EnUsImage />
+          </figure>
           <span className="language-span">English</span>
           <ArrowDownImage />
         </div>
         <div className="profile">
           <div className="profile-content">
-            <figure className="profile-content-figure"></figure>
+            <figure className="profile-content-figure">
+              <PersonImage />
+            </figure>
             <div className="desc">
               <p className="desc-text">Moni Roy</p>
               <span className="desc-span">Admin</span>

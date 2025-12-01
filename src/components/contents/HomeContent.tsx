@@ -4,6 +4,7 @@ import { AppContext } from "@/context/appContext";
 import { useContext } from "react";
 import DashboardCard from "@/components/cards/DashboardCard";
 import SalesChart from "@/components/charts/SalesChart";
+import DealsCard from "@/components/cards/DealsCard";
 
 const HomeContent = () => {
   const { dashboardCards } = useContext(AppContext);
@@ -19,6 +20,7 @@ const HomeContent = () => {
           ))}
         </div>
         <SalesChart />
+        <DealsCard />
       </div>
     </div>
   );
