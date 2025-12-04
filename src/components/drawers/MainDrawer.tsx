@@ -1,4 +1,4 @@
-import { AppContext, type Page } from "@/context/appContext";
+import { AppContext } from "@/context/appContext";
 import { useContext } from "react";
 import { Link } from "react-router";
 import LogoImage from "@/components/images/LogoImage";
@@ -7,6 +7,7 @@ import PageButton from "@/components/buttons/PageButton";
 import ArrowDownImage from "@/components/images/ArrowDownImage";
 import CloseImage from "@/components/images/CloseImage";
 import EnUsImage from "@/components/images/EnUsImage";
+import type { Page } from "@/types/contexts.types";
 
 const MainDrawer = () => {
   const { pages, setIsMainDrawerOpen } = useContext(AppContext);

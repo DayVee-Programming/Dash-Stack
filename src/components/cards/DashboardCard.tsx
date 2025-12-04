@@ -1,6 +1,6 @@
 import Graph3Image from "@/components/images/Graph3Image";
 import type { FC } from "react";
-import type { DashboardCard as DashboardCardType } from "@/context/appContext";
+import type { DashboardCard as DashboardCardType } from "@/types/contexts.types";
 
 export type DashboardCardProps = {
   dashboardCard: DashboardCardType;

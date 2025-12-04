@@ -1,4 +1,4 @@
-import type { Page } from "@/context/appContext";
+import type { Page } from "@/types/contexts.types";
 import type { FC } from "react";
 
 export type MainHeadingProps = {

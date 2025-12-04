@@ -374,6 +374,7 @@ main {
     position: relative;
     margin-right: 31px;
     cursor: pointer;
+    user-select: none;
 
     @media (max-width: 1200px) {
       margin-right: 25px;
@@ -402,6 +403,7 @@ main {
     align-items: center;
     margin-right: 27px;
     cursor: pointer;
+    user-select: none;
 
     @media (max-width: 1200px) {
       margin-right: 18px;
@@ -449,6 +451,7 @@ main {
     align-items: center;
     gap: 26px;
     cursor: pointer;
+    user-select: none;
 
     @media (max-width: 1200px) {
       gap: 18px;
@@ -475,6 +478,201 @@ main {
 
     & > svg > path {
       fill: $clr-2;
+    }
+  }
+
+  & .profile-popper {
+    & .MuiPaper-elevation {
+      box-shadow: unset;
+      border-radius: 14px;
+    }
+
+    & .list {
+      border-radius: inherit;
+      min-width: 205px;
+      box-shadow: 0 9px 40px 0 $clr-1-10;
+      background: $clr-2;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    & .list-item {
+      padding: 12px 20px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 0.5px solid $clr-23-25;
+      cursor: not-allowed;
+
+      &:last-child {
+        border-bottom: unset;
+      }
+
+      & > svg {
+        max-width: 18px;
+        height: 16px;
+      }
+    }
+  }
+
+  & .language-popper {
+    & .MuiPaper-elevation {
+      box-shadow: unset;
+      border-radius: 14px;
+    }
+
+    & .list {
+      border-radius: inherit;
+      min-width: 254px;
+      box-shadow: 0 9px 40px 0 $clr-1-10;
+      background: $clr-2;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    & .list-item {
+      padding: 15px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: not-allowed;
+
+      &.title {
+        padding: 14px 20px 13px;
+        border-bottom: 0.5px solid $clr-23-25;
+      }
+
+      & > svg {
+        width: 18px;
+        height: 13px;
+      }
+    }
+
+    & .title-span {
+      font-weight: $fw-4;
+      font-size: $fs-8;
+      color: $clr-8;
+    }
+
+    & .list-item-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    & .list-item-content-figure {
+      width: 44px;
+      height: 30px;
+      background: $clr-6;
+    }
+
+    & .list-item-content-span {
+      font-size: $fs-2;
+      color: $clr-8;
+    }
+  }
+
+  & .notification-popper {
+    & .MuiPaper-elevation {
+      box-shadow: unset;
+      border-radius: 14px;
+    }
+
+    & .list {
+      border-radius: inherit;
+      min-width: 254px;
+      box-shadow: 0 9px 40px 0 $clr-1-10;
+      background: $clr-2;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    & .list-item {
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: not-allowed;
+
+      &:nth-child(2) {
+        & .list-item-figure {
+          background: linear-gradient(180deg, $clr-29 0%, $clr-28 100%);
+
+          & > svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        & .list-item-figure {
+          background: linear-gradient(180deg, $clr-30 0%, $clr-31 100%);
+        }
+      }
+
+      &:nth-child(4) {
+        & .list-item-figure {
+          background: linear-gradient(180deg, $clr-32 0%, $clr-33 100%);
+        }
+      }
+
+      &:nth-child(5) {
+        & .list-item-figure {
+          background: linear-gradient(180deg, $clr-34 0%, $clr-35 100%);
+        }
+      }
+
+      &.title {
+        padding: 14px 20px;
+        border-bottom: 0.5px solid $clr-23-25;
+      }
+
+      &.more {
+        padding: 14px 20px;
+        border-top: 0.5px solid $clr-23-25;
+        justify-content: center;
+      }
+
+      & .more-span {
+        font-weight: $fw-4;
+        font-size: $fs-9;
+        color: $clr-36;
+      }
+    }
+
+    & .title-span {
+      font-size: $fs-8;
+      color: $clr-8;
+    }
+
+    & .list-item-figure {
+      width: 36px;
+      height: 36px;
+      padding: 9px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    & .list-item-desc {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & .list-item-desc-title {
+      font-size: $fs-2;
+      color: $clr-4;
+      margin-bottom: 1px;
+    }
+
+    & .list-item-desc-span {
+      font-size: $fs-3;
+      color: $clr-27;
     }
   }
 

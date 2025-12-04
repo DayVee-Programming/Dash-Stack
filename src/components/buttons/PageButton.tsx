@@ -1,4 +1,5 @@
-import { AppContext, type Page } from "@/context/appContext";
+import { AppContext } from "@/context/appContext";
+import type { Page } from "@/types/contexts.types";
 import { Tooltip } from "@mui/material";
 import { useContext, type FC } from "react";
 import { NavLink } from "react-router";

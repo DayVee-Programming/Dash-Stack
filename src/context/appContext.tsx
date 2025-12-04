@@ -8,9 +8,6 @@ import {
   createContext,
   useEffect,
   useState,
-  type Dispatch,
-  type ReactNode,
-  type SetStateAction,
 } from "react";
 import GiftImage from "@/components/images/GiftImage";
 import CalendarImage from "@/components/images/CalendarImage";
@@ -26,51 +23,9 @@ import People2Image from "@/components/images/People2Image";
 import BoxImage from "@/components/images/BoxImage";
 import Graph2Image from "@/components/images/Graph2Image";
 import TimeImage from "@/components/images/TimeImage";
+import type { AppContextProps, AppContextProviderProps, Breakpoints, DashboardCard, IsMainDrawerOpen, IsMainSidebarCollapsed, IsMainSidebarOpen, Page } from "@/types/contexts.types";
 
-export type Page = {
-  name: string;
-  image?: ReactNode;
-  route?: string;
-  type?: "section";
-};
-export type IsMainSidebarOpen = boolean;
-export type IsMainSidebarCollapsed = boolean;
-export type IsMainDrawerOpen = boolean;
-export type Breakpoints = {
-  480: boolean;
-  576: boolean;
-  768: boolean;
-  992: boolean;
-  1200: boolean;
-  1400: boolean;
-};
-export type DashboardCard = {
-  title: string;
-  number: string;
-  image: ReactNode;
-  trend: string;
-  percentage: string;
-  description: string;
-};
-type AppContextProviderProps = {
-  children: ReactNode;
-};
-type AppContext = {
-  pages: Page[];
-  setPages: Dispatch<SetStateAction<Page[]>>;
-  isMainSidebarOpen: IsMainSidebarOpen;
-  setIsMainSidebarOpen: Dispatch<SetStateAction<IsMainSidebarOpen>>;
-  isMainSidebarCollapsed: IsMainSidebarCollapsed;
-  setIsMainSidebarCollapsed: Dispatch<SetStateAction<IsMainSidebarCollapsed>>;
-  breakpoints: Breakpoints;
-  setBreakpoints: Dispatch<SetStateAction<Breakpoints>>;
-  isMainDrawerOpen: IsMainDrawerOpen;
-  setIsMainDrawerOpen: Dispatch<SetStateAction<IsMainDrawerOpen>>;
-  dashboardCards: DashboardCard[];
-  setDashboardCards: Dispatch<SetStateAction<DashboardCard[]>>;
-};
-
-export const AppContext = createContext({} as AppContext);
+export const AppContext = createContext({} as AppContextProps);
 export function AppContextProvider({ children }: AppContextProviderProps) {
   // Variables
   const [pages, setPages] = useState<Page[]>([

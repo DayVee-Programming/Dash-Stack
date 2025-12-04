@@ -4,6 +4,7 @@
 // Colors
 $clr-1: #000000;
 $clr-1-05: #0000000d;
+$clr-1-10: #0000001a;
 $clr-2: #ffffff;
 $clr-3: #4880ff;
 $clr-4: #202224;
@@ -32,10 +33,21 @@ $clr-21: #2b3034;
 $clr-21-40: #2b303466;
 $clr-22: #f1f4f9;
 $clr-23: #979797;
+$clr-23-25: #97979740;
 $clr-23-40: #97979766;
 $clr-24: #fcbe2d;
 $clr-25: #fd5454;
 $clr-26: #b9b9b9;
+$clr-27: #b5b5b5;
+$clr-28: #80c9fc;
+$clr-29: #4e96ff;
+$clr-30: #f97fd9;
+$clr-31: #ffc1e6;
+$clr-32: #9e8fff;
+$clr-33: #ebcbff;
+$clr-34: #ff8f8f;
+$clr-35: #ffc1c1;
+$clr-36: #a8a8a8;
 
 // Font families
 $ff-1: 'Nunito Sans', sans-serif;
@@ -44,6 +56,7 @@ $ff-1: 'Nunito Sans', sans-serif;
 $fw-1: 600;
 $fw-2: 700;
 $fw-3: 500;
+$fw-4: 400;
 
 // Font sizes
 $fs-1: 16px;
@@ -53,6 +66,8 @@ $fs-4: 32px;
 $fs-5: 28px;
 $fs-6: 24px;
 $fs-7: 20px;
+$fs-8: 15px;
+$fs-9: 13px;
 
 // Responsive font sizes
 $fsr-1: clamp($fs-5, 1.68rem + 0.35vw, $fs-4);
