@@ -1,30 +1,31 @@
 import MenuImage from "@/components/images/MenuImage";
 import NotificationImage from "@/components/images/NotificationImage";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import ArrowDownImage from "@/components/images/ArrowDownImage";
 import SearchImage from "@/components/images/SearchImage";
-import { AppContext } from "@/context/appContext";
 import EnUsImage from "@/components/images/EnUsImage";
 import PersonImage from "@/components/images/PersonImage";
 import ProfilePopper from "@/components/poppers/ProfilePopper";
 import LanguagePopper from "@/components/poppers/LanguagePopper";
-import type {
-  ClickDropdownAway as ClickDropdownAway,
-  ToggleDropdown,
-} from "@/types/components.types";
 import NotificationPopper from "@/components/poppers/NotificationPopper";
+import { DropdownContext } from "@/contexts/DropdownContext";
+import { AppContext } from "@/contexts/AppContext";
 
 const MainHeader = () => {
   // Variables
   const searchInputRef = useRef<HTMLInputElement>(null);
   const { isMainSidebarCollapsed, setIsMainSidebarCollapsed, breakpoints, setIsMainDrawerOpen } =
     useContext(AppContext);
-  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-  const [isNotificationDropdownOpen, setIsNotificationDropdownOpen] = useState(false);
-  const [profileDropdownAnchor, setProfileDropdownAnchor] = useState<HTMLElement | null>(null);
-  const [languageDropdownAnchor, setLanguageDropdownAnchor] = useState<HTMLElement | null>(null);
-  const [notificationDropdownAnchor, setNotificationDropdownAnchor] = useState<HTMLElement | null>(null);
+  const {
+    isProfileDropdownOpen,
+    isLanguageDropdownOpen,
+    isNotificationDropdownOpen,
+    profileDropdownAnchor,
+    languageDropdownAnchor,
+    notificationDropdownAnchor,
+    toggleDropdown,
+    clickDropdownAway,
+  } = useContext(DropdownContext);
 
   // Synchronous functions
   const clickSearchImage = () => {
@@ -36,45 +37,6 @@ const MainHeader = () => {
     setIsMainSidebarCollapsed(!isMainSidebarCollapsed);
     if (breakpoints[768]) {
       setIsMainDrawerOpen(true);
-    }
-  };
-  const toggleDropdown: ToggleDropdown = (e, type) => {
-    if (type === "profile") {
-      setProfileDropdownAnchor(e.currentTarget);
-      setIsProfileDropdownOpen(!isProfileDropdownOpen);
-    } else if (type === "language") {
-      setLanguageDropdownAnchor(e.currentTarget);
-      setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
-    } else if (type === "notification") {
-      setNotificationDropdownAnchor(e.currentTarget);
-      setIsNotificationDropdownOpen(!isNotificationDropdownOpen);
-    }
-  };
-  const clickDropdownAway: ClickDropdownAway = (e, type) => {
-    if (type === "profile") {
-      if (
-        profileDropdownAnchor &&
-        (e.target === profileDropdownAnchor || profileDropdownAnchor.contains(e.target as Node))
-      ) {
-        return;
-      }
-      setIsProfileDropdownOpen(false);
-    } else if (type === "language") {
-      if (
-        languageDropdownAnchor &&
-        (e.target === languageDropdownAnchor || languageDropdownAnchor.contains(e.target as Node))
-      ) {
-        return;
-      }
-      setIsLanguageDropdownOpen(false);
-    } else if (type === "notification") {
-      if (
-        notificationDropdownAnchor &&
-        (e.target === notificationDropdownAnchor || notificationDropdownAnchor.contains(e.target as Node))
-      ) {
-        return;
-      }
-      setIsNotificationDropdownOpen(false);
     }
   };
 
@@ -104,7 +66,7 @@ const MainHeader = () => {
         </figure>
         <NotificationPopper
           isNotificationDropdownOpen={isNotificationDropdownOpen}
-          anchorEl={notificationDropdownAnchor}
+          notificationDropdownAnchor={notificationDropdownAnchor}
           clickDropdownAway={clickDropdownAway}
         />
         <div className="language" onClick={(e) => toggleDropdown(e, "language")}>

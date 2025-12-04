@@ -4,9 +4,9 @@ const CloseImage = () => {
       <path
         d="M8.75 8.75L21.25 21.25M8.75 21.25L21.25 8.75"
         stroke="black"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

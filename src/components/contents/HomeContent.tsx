@@ -1,10 +1,10 @@
 import MainHeader from "@/components/headers/MainHeader";
 import ContentHeading from "@/components/headings/ContentHeading";
-import { AppContext } from "@/context/appContext";
 import { useContext } from "react";
 import DashboardCard from "@/components/cards/DashboardCard";
 import SalesChart from "@/components/charts/SalesChart";
 import DealsCard from "@/components/cards/DealsCard";
+import { AppContext } from "@/contexts/AppContext";
 
 const HomeContent = () => {
   const { dashboardCards } = useContext(AppContext);

@@ -5,17 +5,20 @@ import EnUsImage from "@/components/images/EnUsImage";
 import CheckImage from "@/components/images/CheckImage";
 import RuImageSrc from "@/assets/images/icons/ru.jpg";
 import UzImageSrc from "@/assets/images/icons/uz.webp";
+import type { IsLanguageDropdownOpen, LanguageDropdownAnchor } from "@/types/contexts.types";
 
 export type LanguagePopperType = {
-  isLanguageDropdownOpen: boolean;
-  languageDropdownAnchor: HTMLElement | null;
+  isLanguageDropdownOpen: IsLanguageDropdownOpen;
+  languageDropdownAnchor: LanguageDropdownAnchor;
   clickDropdownAway: ClickDropdownAway;
+  offsetY?: number;
 };
 
 const LanguagePopper: FC<LanguagePopperType> = ({
   isLanguageDropdownOpen,
   languageDropdownAnchor,
   clickDropdownAway,
+  offsetY
 }) => {
   return (
     <Popper
@@ -29,7 +32,7 @@ const LanguagePopper: FC<LanguagePopperType> = ({
         {
           name: "offset",
           options: {
-            offset: [0, 12],
+            offset: [0, offsetY ? offsetY : 12],
           },
         },
         {

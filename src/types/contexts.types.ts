@@ -1,4 +1,5 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react";
+import type { ClickDropdownAway, ToggleDropdown } from "@/types/components.types";
 
 export type AppContextProps = {
   pages: Page[];
@@ -48,4 +49,31 @@ export type DashboardCard = {
   trend: string;
   percentage: string;
   description: string;
+};
+
+export type IsProfileDropdownOpen = boolean;
+
+export type IsLanguageDropdownOpen = boolean;
+
+export type IsNotificationDropdownOpen = boolean;
+
+export type ProfileDropdownAnchor = HTMLElement | null;
+
+export type LanguageDropdownAnchor = HTMLElement | null;
+
+export type NotificationDropdownAnchor = HTMLElement | null;
+
+export type DropdownContextProps = {
+  isProfileDropdownOpen: IsProfileDropdownOpen;
+  isLanguageDropdownOpen: IsLanguageDropdownOpen;
+  isNotificationDropdownOpen: IsNotificationDropdownOpen;
+  profileDropdownAnchor: ProfileDropdownAnchor;
+  languageDropdownAnchor: LanguageDropdownAnchor;
+  notificationDropdownAnchor: NotificationDropdownAnchor;
+  toggleDropdown: ToggleDropdown;
+  clickDropdownAway: ClickDropdownAway;
+};
+
+export type DropdownContextProviderProps = {
+  children: ReactNode;
 };

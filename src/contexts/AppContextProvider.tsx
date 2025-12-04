@@ -4,11 +4,7 @@ import Grid2Image from "@/components/images/Grid2Image";
 import HeartImage from "@/components/images/HeartImage";
 import ListImage from "@/components/images/ListImage";
 import SpeedImage from "@/components/images/SpeedImage";
-import {
-  createContext,
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
 import GiftImage from "@/components/images/GiftImage";
 import CalendarImage from "@/components/images/CalendarImage";
 import TaskImage from "@/components/images/TaskImage";
@@ -23,9 +19,17 @@ import People2Image from "@/components/images/People2Image";
 import BoxImage from "@/components/images/BoxImage";
 import Graph2Image from "@/components/images/Graph2Image";
 import TimeImage from "@/components/images/TimeImage";
-import type { AppContextProps, AppContextProviderProps, Breakpoints, DashboardCard, IsMainDrawerOpen, IsMainSidebarCollapsed, IsMainSidebarOpen, Page } from "@/types/contexts.types";
+import type {
+  AppContextProviderProps,
+  Breakpoints,
+  DashboardCard,
+  IsMainDrawerOpen,
+  IsMainSidebarCollapsed,
+  IsMainSidebarOpen,
+  Page,
+} from "@/types/contexts.types";
+import { AppContext } from "@/contexts/AppContext";
 
-export const AppContext = createContext({} as AppContextProps);
 export function AppContextProvider({ children }: AppContextProviderProps) {
   // Variables
   const [pages, setPages] = useState<Page[]>([

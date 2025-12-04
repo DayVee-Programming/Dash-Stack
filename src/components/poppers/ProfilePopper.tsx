@@ -4,11 +4,13 @@ import KeyImage from "@/components/images/KeyImage";
 import ActivityImage from "@/components/images/ActivityImage";
 import Logout2Image from "@/components/images/Logout2Image";
 import type { FC } from "react";
+import type { IsProfileDropdownOpen, ProfileDropdownAnchor } from "@/types/contexts.types";
+import type { ClickDropdownAway } from "@/types/components.types";
 
 export type ProfilePopperType = {
-  isProfileDropdownOpen: boolean;
-  profileDropdownAnchor: HTMLElement | null;
-  clickDropdownAway: (event: MouseEvent | TouchEvent, type: "profile" | "language") => void;
+  isProfileDropdownOpen: IsProfileDropdownOpen;
+  profileDropdownAnchor: ProfileDropdownAnchor;
+  clickDropdownAway: ClickDropdownAway;
 };
 
 const ProfilePopper: FC<ProfilePopperType> = ({

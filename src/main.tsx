@@ -2,12 +2,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "@/assets/scss/main.scss";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { AppContextProvider } from "@/context/appContext.tsx";
 import { ToastContainer } from "react-toastify";
 import NotFoundPage from "@/pages/NotFoundPage.tsx";
 import DefaultPage from "@/pages/DefaultPage";
 import HomeContent from "./components/contents/HomeContent";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { AppContextProvider } from "@/contexts/AppContextProvider";
+import { DropdownContextProvider } from "@/contexts/DropdownContextProvider";
 
 const router = createBrowserRouter([
   {
@@ -29,10 +30,12 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <AppContextProvider>
-      <RouterProvider router={router} />
+      <DropdownContextProvider>
+        <RouterProvider router={router} />
 
-      <ToastContainer />
-      <Analytics/>
+        <ToastContainer />
+        <Analytics />
+      </DropdownContextProvider>
     </AppContextProvider>
   </StrictMode>
 );

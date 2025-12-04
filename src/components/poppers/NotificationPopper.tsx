@@ -5,23 +5,24 @@ import Settings2Image from "@/components/images/Settings2Image";
 import Calendar2Image from "@/components/images/Calendar2Image";
 import Person3Image from "@/components/images/Person3Image";
 import WarningImage from "@/components/images/WarningImage";
+import type { IsNotificationDropdownOpen, NotificationDropdownAnchor } from "@/types/contexts.types";
 
 export type NotificationPopperType = {
-  isNotificationDropdownOpen: boolean;
-  anchorEl: HTMLElement | null;
+  isNotificationDropdownOpen: IsNotificationDropdownOpen;
+  notificationDropdownAnchor: NotificationDropdownAnchor;
   clickDropdownAway: ClickDropdownAway;
 };
 
 const NotificationPopper: FC<NotificationPopperType> = ({
   isNotificationDropdownOpen,
-  anchorEl,
+  notificationDropdownAnchor,
   clickDropdownAway,
 }) => {
   return (
     <Popper
       className="notification-popper"
       open={isNotificationDropdownOpen}
-      anchorEl={anchorEl}
+      anchorEl={notificationDropdownAnchor}
       transition
       disablePortal
       placement="bottom"

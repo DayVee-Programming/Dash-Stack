@@ -1,10 +1,10 @@
 import LogoImage from "@/components/images/LogoImage";
-import { AppContext } from "@/context/appContext";
 import { useContext } from "react";
 import PageButton from "@/components/buttons/PageButton";
 import { Link } from "react-router";
 import MainHeading from "@/components/headings/MainHeading";
 import type { Page } from "@/types/contexts.types";
+import { AppContext } from "@/contexts/AppContext";
 
 const MainSidebar = () => {
   const { pages, isMainSidebarCollapsed, breakpoints } = useContext(AppContext);
