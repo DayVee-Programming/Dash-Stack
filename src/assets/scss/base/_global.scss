@@ -865,6 +865,12 @@ main {
         color: $clr-16;
       }
     }
+
+    &.down {
+      & .bottom-text-span {
+        color: $clr-7;
+      }
+    }
   }
 
   & .bottom-figure {
@@ -1022,6 +1028,7 @@ main {
       height: 36px;
       background: $clr-6;
       flex-shrink: 0;
+      padding: 5px;
     }
 
     & .status {

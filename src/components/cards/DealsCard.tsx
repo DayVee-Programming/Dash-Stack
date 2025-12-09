@@ -8,6 +8,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import ProductImage from "@/components/images/ProductImage";
 
 function createData(
   name: string,
@@ -25,25 +26,25 @@ const data = [
   createData(
     "Apple Watch",
     "6096 Marjolaine Landing",
-    "12.09.2019 - 12.53 PM",
+    "12.09.2025 - 12.53 PM",
     "423",
     "$34,295",
     "Delivered"
   ),
   createData(
-    "Apple Watch",
-    "6096 Marjolaine Landing",
-    "12.09.2019 - 12.53 PM",
-    "423",
-    "$34,295",
+    "Lenovo Laptop",
+    "1222 Washington River",
+    "11.09.2025 - 11.53 PM",
+    "323",
+    "$14,295",
     "Pending"
   ),
   createData(
-    "Apple Watch",
-    "6096 Marjolaine Landing",
-    "12.09.2019 - 12.53 PM",
-    "423",
-    "$34,295",
+    "Apple iPhone",
+    "3450 LA Heels",
+    "12.10.2025 - 10.53 PM",
+    "123",
+    "$2,295",
     "Rejected"
   ),
 ];
@@ -74,7 +75,9 @@ const DealsCard = () => {
             {data.map((row, i) => (
               <TableRow key={i} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                 <TableCell component="th" scope="row">
-                  <div className="profile"></div>
+                  <figure className="profile">
+                    <ProductImage />
+                  </figure>
                   <span className="profile-span">{row.name}</span>
                 </TableCell>
                 <TableCell>{row.location}</TableCell>
